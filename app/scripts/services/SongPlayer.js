@@ -74,6 +74,13 @@
     SongPlayer.currentTime = null;
     
     /**
+    * @desc Volume of song being played
+    * @type {Number}
+    */
+    
+    SongPlayer.volume = 100;
+    
+    /**
     * @function SongPlayer.play
     * @desc Checks whether user is selecting the song that is already playing. If it is, assumes song is Paused so starts playing when function called.
     * @param {Object} song
@@ -135,6 +142,18 @@
       if (currentBuzzObject) {
         currentBuzzObject.setTime(time);
       }
+    };
+    
+    /**
+    * @function setVolume
+    * @desc Set volume for songs
+    * @param {Number} volume
+    */
+    SongPlayer.volume = function(volume) {
+      if (currentBuzzObject) {
+        currentBuzzObject.setVolume(volume);
+      }
+      SongPlayer.volume = volume;
     };
     
     return SongPlayer; 
